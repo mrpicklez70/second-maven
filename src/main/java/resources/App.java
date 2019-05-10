@@ -1,4 +1,4 @@
-package resources.second_maven;
+package resources;
 
 /**
  * Hello world!

@@ -1,4 +1,4 @@
-package resources.second_maven;
+package resources;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
