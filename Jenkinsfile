@@ -7,12 +7,20 @@ pipeline {
             }
         }
         stage('--Test--') { 
+            tools{
+                jdk 'JAVA_HOME'   
+                }
             steps {
-               bat 'mvn test'
+                bat 'java -version'
+                bat 'mvn test'
             }
         }
         stage('--Package--') { 
+           tools{
+                jdk 'JAVA_HOME'   
+                }
             steps {
+                bat 'java -version'
                 bat 'mvn package'
             }
         }
