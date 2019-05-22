@@ -1,0 +1,33 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Clone repo') {
+            steps {
+                dir('second-maven'){
+                    deleteDir()
+                }
+
+                bat 'git clone https://github.com/mrpicklez70/second-maven.git'
+                bat 'mvn clean -f second-maven'
+            }
+        }
+        stage('Test') { 
+            tools{
+                jdk 'JAVA_HOME'   
+                }
+            steps {
+                bat 'java -version'
+                bat 'mvn test -f second-maven'
+            }
+        }
+        stage('Deploy') { 
+           tools{
+                jdk 'JAVA_HOME'   
+                }
+            steps {
+                bat 'java -version'
+                bat 'mvn package -f second-maven'
+            }
+        }
+    }
+}
